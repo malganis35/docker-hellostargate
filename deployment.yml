@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: karthequian/helloworld:latest
+        image: malganis35/hellostargate:latest
         ports:
         - containerPort: 80
 ---
@@ -31,5 +31,3 @@ spec:
      protocol: TCP
      port: 80
      nodePort: 32080
- selector:
-   app: helloworld
