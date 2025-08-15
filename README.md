@@ -1,21 +1,19 @@
-# docker-helloworld
+# docker-hellostargate
 
-![Docker Pulls](https://img.shields.io/docker/pulls/karthequian/helloworld.svg) ![Automated Builds](https://img.shields.io/docker/automated/karthequian/helloworld.svg) ![Build Status](https://img.shields.io/docker/build/karthequian/helloworld.svg )
+A simple helloworld app for docker adapted to the Stargate SG1 Theme
 
-A simple helloworld app for docker
-
-A simple nginx helloworld application that helps you learn docker image pulls. Runs on port :80
+A simple nginx helloworld application that helps you learn docker image pulls. Runs on port :8888
 
 To pull this image:
 ```
-docker pull karthequian/helloworld:latest
+docker pull malganis35/hellostargate
 ```
 
 To run this image:
 ```
-docker run -p 80:80/tcp "karthequian/helloworld:latest"
+docker run -p 8888:80/tcp "malganis35/hellostargate:latest"
 ```
 
-Dockerhub link: https://hub.docker.com/r/karthequian/helloworld/
+Dockerhub link: https://hub.docker.com/repository/docker/malganis35/hellostargate/
 
-Github link: https://github.com/karthequian/docker-helloworld
+Github link: https://github.com/malganis35/docker-hellostargate
