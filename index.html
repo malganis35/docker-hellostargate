@@ -1,107 +1,183 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="A simple docker helloworld example.">
-    <meta name="author" content="Karthik Gaekwad">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Stargate</title>
 
-	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-<script type="text/javascript">
-function init ( )
-{
-  timeDisplay = document.createTextNode ( "" );
-  document.getElementById("clock").appendChild ( timeDisplay );
-}
+    <link href="https://fonts.googleapis.com/css?family=Orbitron:400,700" rel="stylesheet">
+    <style>
+        body {
+            background-color: #000814;
+            color: #00ffff;
+            font-family: 'Orbitron', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .hud-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .panel {
+            border: 2px solid #00b4d8;
+            padding: 10px;
+            margin: 5px;
+            background-color: rgba(0, 20, 40, 0.8);
+            box-shadow: 0 0 15px #00b4d8;
+        }
+        .left-panel {
+            flex: 1;
+            min-width: 250px;
+        }
+        .center-panel {
+            flex: 2;
+            min-width: 300px;
+            text-align: center;
+        }
+        .right-panel {
+            flex: 1;
+            min-width: 250px;
+        }
+        .stargate-img {
+            max-width: 100%;
+            border: 2px solid #00ffff;
+            box-shadow: 0 0 20px #00ffff;
+        }
+        .status {
+            font-size: 1.2em;
+            color: #ff0000;
+            text-shadow: 0 0 5px #ff0000;
+        }
+        .glyph-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .glyph {
+            border: 1px solid #00b4d8;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.8em;
+            color: #00ffff;
+        }
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .btn {
+            flex: 1;
+            padding: 8px;
+            font-size: 0.9em;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #00ffff;
+            background-color: transparent;
+            color: #00ffff;
+            transition: all 0.2s;
+        }
+        .btn.alert {
+            color: #ff0000;
+            border-color: #ff0000;
+        }
+        .btn:hover {
+            background-color: rgba(0, 255, 255, 0.1);
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+    </style>
 
-function updateVisit ()
-{
-  visitDisplay = document.createTextNode ( "" );
-  document.getElementById("visits").appendChild(visitDisplay);
-
-  var counter = Cookies.get('counter');
-  if (counter==null){
-  console.log(counter);
-  	counter = 1;
-  }else{
-  	counter = Number(counter) + 1;
-  }
-  Cookies.set('counter', counter);
-  document.getElementById("visits").firstChild.nodeValue = counter;
-}
-
-function updateClock ()
-{
-  var currentTime = new Date ( );
-
-  var currentHours = currentTime.getHours ( );
-  var currentMinutes = currentTime.getMinutes ( );
-  var currentSeconds = currentTime.getSeconds ( );
-
-  // Pad the minutes and seconds with leading zeros, if required
-  currentMinutes = ( currentMinutes < 10 ? "0" : "" ) + currentMinutes;
-  currentSeconds = ( currentSeconds < 10 ? "0" : "" ) + currentSeconds;
-
-  // Choose either "AM" or "PM" as appropriate
-  var timeOfDay = ( currentHours < 12 ) ? "AM" : "PM";
-
-  // Convert the hours component to 12-hour format if needed
-  currentHours = ( currentHours > 12 ) ? currentHours - 12 : currentHours;
-
-  // Convert an hours component of "0" to "12"
-  currentHours = ( currentHours == 0 ) ? 12 : currentHours;
-
-  // Compose the string for display
-  var currentTimeString = currentHours + ":" + currentMinutes + ":" + currentSeconds + " " + timeOfDay;
-
-  // Update the time display
-  document.getElementById("clock").firstChild.nodeValue = currentTimeString;
-}
-</script>
-</head>
-<body  onload="updateVisit(); updateClock(); setInterval('updateClock()', 1000 )">
-    <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Docker Helloworld</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="https://github.com/karthequian/docker-helloworld">About</a></li>
-            <li><a href="https://twitter.com/iteration1">Contact</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
-
-    <div class="container theme-showcase" role="main">
-
-      <!-- Main jumbotron for a primary marketing message or call to action -->
-      <div class="jumbotron">
-        <h1>Hello</h1>
-        <p>Is it me you're looking for?</p>
-      </div>
-      <hr/>
-      <div class="footer">
-        <p>2021 Karthik Gaekwad,&nbsp;Visits:&nbsp;<span id="visits">&nbsp;</span>,&nbsp;&nbsp;<span id="clock">&nbsp;</span></p>
-        <div title="The container ID is the ID of the container (or host) that is the helloworld application.">Container ID: HOSTNAME
-        </div>
-      </div>
-    </div> <!-- /container -->
-	</div>
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.1/js.cookie.min.js"></script>
-	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script>
+        function updateVisit() {
+            var counter = Cookies.get('counter');
+            counter = counter ? Number(counter) + 1 : 1;
+            Cookies.set('counter', counter);
+            document.getElementById("visits").textContent = counter;
+        }
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("clock").textContent = now.toLocaleTimeString();
+        }
+    </script>
+</head>
+<body onload="updateVisit(); updateClock(); setInterval(updateClock, 1000)">
+
+    <div class="hud-container">
+        <!-- Left panel -->
+        <div class="panel left-panel">
+            <h3>Status 101A</h3>
+            <p>Chevron Encoded:</p>
+            <div style="color:lime;">1 ████</div>
+            <div style="color:lime;">2 ████</div>
+            <div style="color:lime;">3 ████</div>
+            <div style="color:lime;">4 ████</div>
+            <div style="color:lime;">5 ████</div>
+            <div style="color:lime;">6 ████</div>
+            <div style="color:red;">7 ████</div>
+            <div style="color:grey;">8 ░░░░</div>
+            <div style="color:grey;">9 ░░░░</div>
+            <h4>Glyph Pad - MW Network</h4>
+            <div class="glyph-grid">
+                <div class="glyph">A</div>
+                <div class="glyph">B</div>
+                <div class="glyph">C</div>
+                <div class="glyph">D</div>
+                <div class="glyph">E</div>
+                <div class="glyph">F</div>
+                <div class="glyph">G</div>
+                <div class="glyph">H</div>
+                <div class="glyph">I</div>
+                <div class="glyph">J</div>
+                <div class="glyph">K</div>
+                <div class="glyph">L</div>
+                <div class="glyph">M</div>
+                <div class="glyph">N</div>
+                <div class="glyph">O</div>
+                <div class="glyph">P</div>
+                <div class="glyph">Q</div>
+                <div class="glyph">R</div>
+                <div class="glyph">S</div>
+                <div class="glyph">T</div>
+                <div class="glyph">U</div>
+                <div class="glyph">V</div>
+                <div class="glyph">W</div>
+                <div class="glyph">X</div>
+                <div class="glyph">Y</div>
+            </div>
+        </div>
+
+        <!-- Center panel -->
+        <div class="panel center-panel">
+            <h1>HELLO STARGATE</h1>
+            <img src="https://www.123-stickers.com/7000-thickbox/autocollant-stargate-porte-des-etoiles.jpg" alt="Stargate" class="stargate-img">
+            <p class="status">STARGATE IS CURRENTLY IDLE</p>
+            <div class="controls">
+                <div class="btn alert">CLOSE IRIS</div>
+                <div class="btn">OPEN IRIS</div>
+                <div class="btn">SHUT DOWN WORMHOLE</div>
+                <div class="btn alert">SECURITY ALERT</div>
+            </div>
+        </div>
+
+        <!-- Right panel -->
+        <div class="panel right-panel">
+            <h3>System Info</h3>
+            <p>Visits: <span id="visits"></span></p>
+            <p>Local Time: <span id="clock"></span></p>
+            <p>Container ID: HOSTNAME</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Stargate Command Interface - v1.0 - For Off-World Missions Only
+    </div>
+
 </body>
 </html>
