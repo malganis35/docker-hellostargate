@@ -48,3 +48,29 @@ networks:
   frontend:
     external: true
 ```
+
+## Build and publish
+
+1. Build the image
+
+```
+docker build -t malganis35/hellostargate:latest .
+```
+
+2. Test the image locally
+
+```
+docker run -p 8080:80 malganis35/hellostargate:latest
+```
+
+3. Login to Dockerhub (if not done): 
+
+```
+docker login
+```
+
+4. Push the image
+
+```
+docker push malganis35/hellostargate:latest
+```
