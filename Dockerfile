@@ -8,7 +8,7 @@
 FROM ubuntu
 
 # File Author / Maintainer
-MAINTAINER Cao Tri DO
+LABEL maintainer="Cao Tri DO"
 
 # Install Nginx
 
