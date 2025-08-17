@@ -1,9 +1,12 @@
 # docker-hellostargate
 
 ## Description
+
 A simple helloworld app for docker adapted to the Stargate SG1 Theme
 
 A simple nginx helloworld application that helps you learn docker image pulls. Runs on port :8888
+
+This project is a fork of the helloworld project https://github.com/karthequian/docker-helloworld adapted to the Stargate SG1 Theme
 
 ## Installation
 
@@ -60,7 +63,7 @@ docker build -t malganis35/hellostargate:latest .
 2. Test the image locally
 
 ```
-docker run -p 8080:80 malganis35/hellostargate:latest
+docker run -p 8888:80 malganis35/hellostargate:latest
 ```
 
 3. Login to Dockerhub (if not done): 

@@ -13,6 +13,20 @@
             margin: 0;
             padding: 0;
         }
+        .navbar {
+            display: flex;
+            background-color: #111;
+            padding: 10px;
+        }
+        .navbar a {
+            color: #00ffff;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: #ff0000;
+        }
         .hud-container {
             display: flex;
             flex-wrap: wrap;
@@ -25,29 +39,15 @@
             background-color: rgba(0, 20, 40, 0.8);
             box-shadow: 0 0 15px #00b4d8;
         }
-        .left-panel {
-            flex: 1;
-            min-width: 250px;
-        }
-        .center-panel {
-            flex: 2;
-            min-width: 300px;
-            text-align: center;
-        }
-        .right-panel {
-            flex: 1;
-            min-width: 250px;
-        }
+        .left-panel { flex: 1; min-width: 250px; }
+        .center-panel { flex: 2; min-width: 300px; text-align: center; }
+        .right-panel { flex: 1; min-width: 250px; }
         .stargate-img {
             max-width: 100%;
             border: 2px solid #00ffff;
             box-shadow: 0 0 20px #00ffff;
         }
-        .status {
-            font-size: 1.2em;
-            color: #ff0000;
-            text-shadow: 0 0 5px #ff0000;
-        }
+        .status { font-size: 1.2em; color: #ff0000; text-shadow: 0 0 5px #ff0000; }
         .glyph-grid {
             display: grid;
             grid-template-columns: repeat(5, 1fr);
@@ -61,12 +61,7 @@
             font-size: 0.8em;
             color: #00ffff;
         }
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 5px;
-            margin-top: 10px;
-        }
+        .controls { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
         .btn {
             flex: 1;
             padding: 8px;
@@ -78,13 +73,8 @@
             color: #00ffff;
             transition: all 0.2s;
         }
-        .btn.alert {
-            color: #ff0000;
-            border-color: #ff0000;
-        }
-        .btn:hover {
-            background-color: rgba(0, 255, 255, 0.1);
-        }
+        .btn.alert { color: #ff0000; border-color: #ff0000; }
+        .btn:hover { background-color: rgba(0, 255, 255, 0.1); }
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -108,6 +98,10 @@
     </script>
 </head>
 <body onload="updateVisit(); updateClock(); setInterval(updateClock, 1000)">
+    <div class="navbar">
+        <a href="index.html">Stargate</a>
+        <a href="harrypotter.html">Harry Potter</a>
+    </div>
 
     <div class="hud-container">
         <!-- Left panel -->
@@ -125,30 +119,14 @@
             <div style="color:grey;">9 ░░░░</div>
             <h4>Glyph Pad - MW Network</h4>
             <div class="glyph-grid">
-                <div class="glyph">A</div>
-                <div class="glyph">B</div>
-                <div class="glyph">C</div>
-                <div class="glyph">D</div>
-                <div class="glyph">E</div>
-                <div class="glyph">F</div>
-                <div class="glyph">G</div>
-                <div class="glyph">H</div>
-                <div class="glyph">I</div>
-                <div class="glyph">J</div>
-                <div class="glyph">K</div>
-                <div class="glyph">L</div>
-                <div class="glyph">M</div>
-                <div class="glyph">N</div>
-                <div class="glyph">O</div>
-                <div class="glyph">P</div>
-                <div class="glyph">Q</div>
-                <div class="glyph">R</div>
-                <div class="glyph">S</div>
-                <div class="glyph">T</div>
-                <div class="glyph">U</div>
-                <div class="glyph">V</div>
-                <div class="glyph">W</div>
-                <div class="glyph">X</div>
+                <div class="glyph">A</div><div class="glyph">B</div><div class="glyph">C</div>
+                <div class="glyph">D</div><div class="glyph">E</div><div class="glyph">F</div>
+                <div class="glyph">G</div><div class="glyph">H</div><div class="glyph">I</div>
+                <div class="glyph">J</div><div class="glyph">K</div><div class="glyph">L</div>
+                <div class="glyph">M</div><div class="glyph">N</div><div class="glyph">O</div>
+                <div class="glyph">P</div><div class="glyph">Q</div><div class="glyph">R</div>
+                <div class="glyph">S</div><div class="glyph">T</div><div class="glyph">U</div>
+                <div class="glyph">V</div><div class="glyph">W</div><div class="glyph">X</div>
                 <div class="glyph">Y</div>
             </div>
         </div>
@@ -178,6 +156,5 @@
     <div class="footer">
         Stargate Command Interface - v1.0 - For Off-World Missions Only
     </div>
-
 </body>
 </html>

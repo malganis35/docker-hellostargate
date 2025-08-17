@@ -1,0 +1,150 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hello Harry Potter</title>
+
+    <link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">
+    <style>
+        body {
+            background-color: #1a0f0f;
+            color: #ffd700;
+            font-family: 'Harry Potter', serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            display: flex;
+            background-color: #000;
+            padding: 10px;
+        }
+        .navbar a {
+            color: #ffd700;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: bold;
+        }
+        .navbar a:hover {
+            color: #b22222;
+        }
+        .hud-container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .panel {
+            border: 2px solid #b22222;
+            padding: 10px;
+            margin: 5px;
+            background-color: rgba(40, 0, 0, 0.85);
+            box-shadow: 0 0 15px #ffd700;
+        }
+        .left-panel { flex: 1; min-width: 250px; }
+        .center-panel { flex: 2; min-width: 300px; text-align: center; }
+        .right-panel { flex: 1; min-width: 250px; }
+        .hogwarts-img {
+            max-width: 100%;
+            border: 2px solid #ffd700;
+            box-shadow: 0 0 20px #ffd700;
+        }
+        .status {
+            font-size: 1.2em;
+            color: #ffd700;
+            text-shadow: 0 0 5px #b22222;
+        }
+        .spell-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 5px;
+            margin-top: 10px;
+        }
+        .spell {
+            border: 1px solid #ffd700;
+            padding: 5px;
+            text-align: center;
+            font-size: 0.9em;
+            color: #ffd700;
+        }
+        .controls { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 10px; }
+        .btn {
+            flex: 1;
+            padding: 8px;
+            font-size: 1em;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #ffd700;
+            background-color: transparent;
+            color: #ffd700;
+            transition: all 0.2s;
+        }
+        .btn.alert { color: #b22222; border-color: #b22222; }
+        .btn:hover { background-color: rgba(255, 215, 0, 0.1); }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.8em;
+            color: #aaa;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.1/js.cookie.min.js"></script>
+    <script>
+        function updateVisit() {
+            var counter = Cookies.get('counter_hp');
+            counter = counter ? Number(counter) + 1 : 1;
+            Cookies.set('counter_hp', counter);
+            document.getElementById("visits").textContent = counter;
+        }
+        function updateClock() {
+            var now = new Date();
+            document.getElementById("clock").textContent = now.toLocaleTimeString();
+        }
+    </script>
+</head>
+<body onload="updateVisit(); updateClock(); setInterval(updateClock, 1000)">
+    <div class="navbar">
+        <a href="index.html">Stargate</a>
+        <a href="harrypotter.html">Harry Potter</a>
+    </div>
+
+    <div class="hud-container">
+        <!-- Left panel -->
+        <div class="panel left-panel">
+            <h3>Maison Assignée</h3>
+            <p>Gryffondor 🦁</p>
+            <h4>Sorts connus</h4>
+            <div class="spell-grid">
+                <div class="spell">Expelliarmus</div>
+                <div class="spell">Lumos</div>
+                <div class="spell">Accio</div>
+                <div class="spell">Protego</div>
+                <div class="spell">Alohomora</div>
+                <div class="spell">Expecto Patronum</div>
+            </div>
+        </div>
+
+        <!-- Center panel -->
+        <div class="panel center-panel">
+            <h1>HELLO HOGWARTS</h1>
+            <img src="https://logo-marque.com/wp-content/uploads/2020/12/Hogwarts-Logo-650x366.png" alt="Hogwarts" class="hogwarts-img">
+            <p class="status">La magie est en veille...</p>
+            <div class="controls">
+                <div class="btn">Lancer un sort</div>
+                <div class="btn">Préparer potion</div>
+                <div class="btn alert">Incarcerous !</div>
+            </div>
+        </div>
+
+        <!-- Right panel -->
+        <div class="panel right-panel">
+            <h3>Infos Système</h3>
+            <p>Visites: <span id="visits"></span></p>
+            <p>Heure locale: <span id="clock"></span></p>
+            <p>Sorcier ID: HOGWARTS_STUDENT</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        Hogwarts Interface - v1.0 - For Wizard Use Only
+    </div>
+</body>
+</html>

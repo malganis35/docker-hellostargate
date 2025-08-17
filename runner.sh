@@ -1,7 +1,9 @@
 #!/bin/sh
 
-# Replace the hostname in the container
-sed -i.bak 's/HOSTNAME/'"$HOSTNAME"'/g' /www/data/index.html
+# Remplacer le mot HOSTNAME par la valeur réelle dans tous les fichiers HTML
+for file in /www/data/*.html; do
+    sed -i.bak 's/HOSTNAME/'"$HOSTNAME"'/g' "$file"
+done
 
-# Startup the cmd
+# Démarrer nginx
 exec "$@"
